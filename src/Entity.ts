@@ -1,15 +1,16 @@
-import { Adapter } from './Adapter';
+import { Adapter } from "./Adapter";
+import ObjectToArrayAdapter from "./Adapter/ObjectToArrayAdapter";
 
 interface ArrayObject {
   [id: string]: any;
 }
 
 export abstract class Entity {
-  private objectToArrayAdapter: Adapter<Object, ArrayObject, any>;
-
-  constructor(objectToArray: Adapter<Object, ArrayObject, any>) {
-    this.objectToArrayAdapter = objectToArray;
-  }
+  private objectToArrayAdapter: Adapter<
+    Object,
+    ArrayObject,
+    any
+  > = new ObjectToArrayAdapter();
 
   /**
    * convert Entity to array
